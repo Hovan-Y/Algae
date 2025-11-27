@@ -16,4 +16,13 @@ public final class Constants {
   public static class OperatorConstants {
     public static final int kDriverControllerPort = 0;
   }
+
+  public static class AlgaeConstants {
+    public static final int kMotor1Port = 62;
+    public static final int kMotor2Port = 8;
+
+    public static final int kLinebreakPort = 7;
+
+    public static final double kIntakeSpeed = 1.1;
+  }
 }
