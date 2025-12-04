@@ -18,7 +18,6 @@ public class Algae extends SubsystemBase{
 
     public DigitalInput Linebeak;
 
-    public double speed;
     public boolean hasAlgae;
 
     public static Algae mInstance = null;
@@ -42,13 +41,9 @@ public class Algae extends SubsystemBase{
         return Linebeak.get();
     }
 
-    public void setMotorToSpeed(){
+    public void setSpeed(double speed){
         Motor1.set(speed);
         Motor2.set(-speed);
-    }
-
-    public void setSpeed(double speed){
-        this.speed = speed;
     }
 
     public Command intake(){
@@ -64,10 +59,10 @@ public class Algae extends SubsystemBase{
     }
 
     public Command test() {
-        if (getLinebreak()){
+        if (hasAlgae){
             return intake();
         } 
-        else if (!getLinebreak()) {
+        else if (!hasAlgae) {
             return outtake();
         }
         else {

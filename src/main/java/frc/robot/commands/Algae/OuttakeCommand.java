@@ -14,32 +14,23 @@ public class OuttakeCommand extends Command{
 
     @Override
     public void initialize() {
-        if (m_AlgaeSubsystem.hasAlgae){
-            m_AlgaeSubsystem.setSpeed(Constants.AlgaeConstants.kOuttakeSpeed);
-        }
     }
 
     // Called every time the scheduler runs while the command is scheduled.
     @Override
     public void execute() {
-        System.out.println("Outtaking");
-        m_AlgaeSubsystem.setMotorToSpeed();
+        
     }
 
     // Called once the command ends or is interrupted.
     @Override
     public void end(boolean interrupted) {
-        if (m_AlgaeSubsystem.getLinebreak()){
-            System.out.println("Outtake Finish");
-            m_AlgaeSubsystem.setSpeed(Constants.AlgaeConstants.kIdleSpeed);
-            m_AlgaeSubsystem.setMotorToSpeed();
-            m_AlgaeSubsystem.hasAlgae = false;
-        }
+     
     }
 
     // Returns true when the command should end.
     @Override
     public boolean isFinished() {
-        return !m_AlgaeSubsystem.hasAlgae;
+        return false;
     }
 }

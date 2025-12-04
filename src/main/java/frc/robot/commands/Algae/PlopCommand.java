@@ -14,13 +14,12 @@ public class PlopCommand extends Command{
 
     @Override
     public void initialize() {
-        m_AlgaeSubsystem.setSpeed(Constants.AlgaeConstants.kPlopSpeed);
-    }
+        }
 
     // Called every time the scheduler runs while the command is scheduled.
     @Override
     public void execute() {
-        m_AlgaeSubsystem.setMotorToSpeed();
+           
     }
 
     // Called once the command ends or is interrupted.
