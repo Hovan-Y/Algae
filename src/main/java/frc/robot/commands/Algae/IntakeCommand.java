@@ -18,6 +18,7 @@ public class IntakeCommand extends Command{
 
     @Override
     public void initialize() {
+        System.out.println("Intaking");
         launchTimer.reset();
         launchTimer.restart();
 
@@ -44,6 +45,6 @@ public class IntakeCommand extends Command{
     // Returns true when the command should end.
     @Override
     public boolean isFinished() {
-        return !m_AlgaeSubsystem.hasAlgae;
+        return false;
     }
 }
