@@ -19,6 +19,7 @@ public class Algae extends SubsystemBase{
     public DigitalInput Linebeak;
 
     public double speed;
+    public boolean hasAlgae;
 
     public static Algae mInstance = null;
 
@@ -55,11 +56,11 @@ public class Algae extends SubsystemBase{
     }
 
     public Command outtake(){
-        return new OuttakeCommand();
+        return new OuttakeCommand(this);
     }
 
     public Command plop(){
-        return new PlopCommand();
+        return new PlopCommand(this);
     }
 
     public Command test() {
@@ -70,7 +71,7 @@ public class Algae extends SubsystemBase{
             return outtake();
         }
         else {
-            return intake();
+            return plop();
         }
     }
 }

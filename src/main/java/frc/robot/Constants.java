@@ -24,5 +24,8 @@ public final class Constants {
     public static final int kLinebreakPort = 7;
 
     public static final double kIntakeSpeed = 1.1;
+    public static final double kOuttakeSpeed = -1.1 ;
+    public static final double kPlopSpeed = 0.1;
+    public static final double kIdleSpeed = 0;
   }
 }

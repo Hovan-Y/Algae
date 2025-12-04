@@ -15,23 +15,32 @@ public class IntakeCommand extends Command{
 
     @Override
     public void initialize() {
-        m_AlgaeSubsystem.setSpeed(Constants.AlgaeConstants.kIntakeSpeed);
+        if (!m_AlgaeSubsystem.hasAlgae){
+            m_AlgaeSubsystem.setSpeed(Constants.AlgaeConstants.kIntakeSpeed);
+        }
     }
 
     // Called every time the scheduler runs while the command is scheduled.
     @Override
     public void execute() {
+        System.out.println("Intaking");
         m_AlgaeSubsystem.setMotorToSpeed();
     }
 
     // Called once the command ends or is interrupted.
     @Override
     public void end(boolean interrupted) {
+        if (m_AlgaeSubsystem.getLinebreak()){
+            System.out.println("Intake Finish");
+            m_AlgaeSubsystem.setSpeed(Constants.AlgaeConstants.kIdleSpeed);
+            m_AlgaeSubsystem.setMotorToSpeed();
+            m_AlgaeSubsystem.hasAlgae = true;
+        }
     }
 
     // Returns true when the command should end.
     @Override
     public boolean isFinished() {
-        return false;
+        return m_AlgaeSubsystem.hasAlgae;
     }
 }
